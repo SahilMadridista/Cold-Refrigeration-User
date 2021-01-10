@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "491592639191",
+    "project_id": "cold-refrigeration",
+    "storage_bucket": "cold-refrigeration.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491592639191:android:62c1102b7e459f08e80692",
+        "android_client_info": {
+          "package_name": "com.example.coldrefrigeration"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491592639191-tqtd2r0r0aojg4dhopi7ovpkt7e7sej5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDebH8E3z7dXamGaco7YO5oQNpUnpglDsc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "491592639191-tqtd2r0r0aojg4dhopi7ovpkt7e7sej5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491592639191:android:011dfd19777723c2e80692",
+        "android_client_info": {
+          "package_name": "com.example.coldrefrigerationuser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491592639191-tqtd2r0r0aojg4dhopi7ovpkt7e7sej5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDebH8E3z7dXamGaco7YO5oQNpUnpglDsc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "491592639191-tqtd2r0r0aojg4dhopi7ovpkt7e7sej5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

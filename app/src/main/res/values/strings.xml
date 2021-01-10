@@ -1,3 +1,64 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Cold Refrigeration User</string>
+
+    <string name="sign_in">SIGN IN</string>
+
+    <string name="type_email">Email address</string>
+    <string name="type_password">Password</string>
+    <string name="type_name">Name</string>
+    <string name="type_phone">Phone number</string>
+    <string name="show_pass">Show password</string>
+    <string name="no_acc">Do not have an account ?</string>
+    <string name="already_acc">Already have an account ?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="cre" tools:ignore="TypographyEllipsis">Creating account...</string>
+    <string name="cre_account">Create new account</string>
+
+    <string name="api_key">Hbw0MmUmaQM-5zxhzlaKDvIkbsqSJddq2YfrQEbHTX</string>
+
+
+    // Admin home page
+
+    <string name="my_workers">My workers</string>
+    <string name="services">Services</string>
+    <string name="pending_work">Pending work</string>
+    <string name="new_worker">New worker</string>
+    <string name="activate_worker">Activate worker</string>
+
+
+    // Services activity
+
+    <string name="service_name">Service name</string>
+    <string name="total_price">Total price</string>
+    <string name="worker_amo">Cost of worker</string>
+    <string name="add_service">Add services</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="adding" tools:ignore="TypographyEllipsis">Adding service...</string>
+    <string name="no_service">No service added yet</string>
+
+    // New worker BS
+
+    <string name="worker_name">Worker name</string>
+    <string name="worker_phone">Worker phone</string>
+    <string name="security_amount">Security amount</string>
+    <string name="no_new_worker">No new worker request found</string>
+
+    // Workers BS
+
+    <string name="no_wor">No worker found</string>
+    <string name="sec">Security amount: </string>
+
+    // Worker home page
+
+    <string name="wallet_amount">Wallet amount</string>
+    <string name="works_for_me">My work</string>
+    <string name="below_amount">Your wallet amount is below the minimum security amount.
+        You can not access the app when the amount is below minimum amount.</string>
+    <string name="no_work_till_now">No work till now for you.</string>
+
+    // Admin profile
+
+    <string name="change_pass">Change password</string>
+
 </resources>
