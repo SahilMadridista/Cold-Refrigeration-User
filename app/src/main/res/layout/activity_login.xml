@@ -36,7 +36,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/white_round">
 
             <TextView
                 android:id="@+id/a"
@@ -58,7 +59,7 @@
                 android:layout_below="@id/password_et"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:theme="@style/chk"
+                android:buttonTint="@color/blue_2"
                 android:text="@string/show_pass"
                 android:textColor="@color/blue_2">
 
@@ -144,6 +145,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cre_account"
+                android:id="@+id/create_acc_text"
+                android:padding="10dp"
                 android:fontFamily="@font/lato_bold"
                 android:textColor="@color/dark_grey"
                 android:layout_centerHorizontal="true"
