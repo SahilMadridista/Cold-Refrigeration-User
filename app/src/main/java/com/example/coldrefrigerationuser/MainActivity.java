@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-
             else {
 
                new Handler().postDelayed(new Runnable() {

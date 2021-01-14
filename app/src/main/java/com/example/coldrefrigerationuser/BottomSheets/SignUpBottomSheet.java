@@ -48,6 +48,8 @@ public class SignUpBottomSheet extends BottomSheetDialogFragment {
 
       EditText EmailET = v.findViewById(R.id.email_et);
       EditText PasswordET = v.findViewById(R.id.password_et);
+      EditText NameET = v.findViewById(R.id.name_et);
+      EditText PhoneET = v.findViewById(R.id.phone_et);
       CheckBox ShowPassCheck = v.findViewById(R.id.show_pass_check);
       TextView SignUpBtn = v.findViewById(R.id.sign_up_btn);
 
@@ -58,6 +60,24 @@ public class SignUpBottomSheet extends BottomSheetDialogFragment {
       SignUpBtn.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
+
+            if(NameET.getText().toString().isEmpty()){
+               String snack = "Please provide a name.";
+               Toast.makeText(context,snack,Toast.LENGTH_LONG).show();
+               return;
+            }
+
+            if(PhoneET.getText().toString().isEmpty()){
+               String snack = "Please provide a phone number.";
+               Toast.makeText(context,snack,Toast.LENGTH_LONG).show();
+               return;
+            }
+
+            if(PhoneET.getText().toString().length() != 10){
+               String snack = "Please provide a 10 digit mobile number.";
+               Toast.makeText(context,snack,Toast.LENGTH_LONG).show();
+               return;
+            }
 
             if(EmailET.getText().toString().isEmpty()){
                String snack = "Email address can't be empty.";
@@ -101,10 +121,9 @@ public class SignUpBottomSheet extends BottomSheetDialogFragment {
                            if(task.isSuccessful()){
 
                               User user = new User();
-                              user.name = "";
-                              user.address = "";
+                              user.name = NameET.getText().toString().trim();
                               user.email = EmailET.getText().toString().trim();
-                              user.phone = "";
+                              user.phone = PhoneET.getText().toString().trim();
 
                               DocumentReference documentReference = firebaseFirestore.collection("Users")
                                       .document(Objects.requireNonNull(firebaseAuth.getCurrentUser()).getUid());

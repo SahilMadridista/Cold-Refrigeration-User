@@ -3,6 +3,7 @@ package com.example.coldrefrigerationuser;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -30,6 +31,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
@@ -44,6 +48,16 @@ public class LoginActivity extends AppCompatActivity {
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_login);
+
+      /*System.out.println("------------------------------------------------");
+      Calendar c = Calendar.getInstance();
+
+      @SuppressLint("SimpleDateFormat")
+      SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+      String date = DateFormat.getDateInstance(DateFormat.DEFAULT).format(c.getTime());
+
+      System.out.println(date);*/
 
       firebaseAuth = FirebaseAuth.getInstance();
       firebaseFirestore = FirebaseFirestore.getInstance();

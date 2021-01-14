@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NeedServiceActivity"
+    android:background="@color/white">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_card">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/book"
+                android:textSize="25sp"
+                android:id="@+id/two"
+                android:fontFamily="@font/lato_bold"
+                android:textColor="@color/white"
+                android:layout_margin="10dp">
+
+            </TextView>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_service"
+                android:textSize="20sp"
+                android:fontFamily="@font/lato_medium"
+                android:textColor="@color/dark_grey"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp">
+
+            </TextView>
+
+            <Spinner
+
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/address_et_bg"
+                android:id="@+id/service_spinner">
+
+            </Spinner>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="3dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/service_cost"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/lato_medium"
+                    android:layout_marginStart="10dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/service_cost_head">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loading"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:layout_marginStart="10dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/dark_grey"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/service_cost_text"
+                    android:layout_toEndOf="@id/service_cost_head">
+
+                </TextView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="3dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/advance_amount"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/lato_medium"
+                    android:layout_marginStart="10dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/advance_amount_head">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loading"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:layout_marginStart="10dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/dark_grey"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/advance_amount_text"
+                    android:layout_toEndOf="@id/advance_amount_head">
+
+                </TextView>
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/address_et"
+        android:textCursorDrawable="@drawable/cursor_et"
+        android:inputType="textCapWords"
+        android:background="@drawable/address_et_bg"
+        android:textColor="@color/dark_grey"
+        android:textColorHint="@color/gray"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="10dp"
+        android:hint="@string/address"
+        android:textSize="15sp"
+        android:fontFamily="@font/lato_regular"
+        android:drawableStart="@drawable/ic_address"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
+
+    </EditText>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/advance"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/lato_regular"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:padding="5dp">
+
+    </TextView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:id="@+id/pay_and_book"
+        android:background="@drawable/btn_bg"
+        android:layout_gravity="center"
+        android:theme="@style/btn_blue"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:text="@string/confirm_booking"
+        android:textAllCaps="false"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+    </Button>
+
+
+
+</LinearLayout>
