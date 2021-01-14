@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -131,6 +129,81 @@
             </TextView>
 
         </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/worker_name_head"
+                android:textSize="17sp"
+                android:text="@string/worker_name"
+                android:gravity="center_vertical"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
+                android:fontFamily="@font/lato_regular"
+                android:textColor="@color/gray">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/worker_name_head"
+                android:text="@string/worker_name"
+                android:id="@+id/worker_name_text"
+                android:gravity="center_vertical"
+                android:textSize="20sp"
+                android:paddingStart="10dp"
+                android:fontFamily="@font/lato_medium"
+                android:textColor="@color/dark_grey"
+                android:paddingEnd="0dp">
+
+            </TextView>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/worker_phone_head"
+                android:textSize="17sp"
+                android:text="@string/worker_contact"
+                android:gravity="center_vertical"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
+                android:fontFamily="@font/lato_regular"
+                android:textColor="@color/gray">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/worker_phone_head"
+                android:text="@string/worker_contact"
+                android:id="@+id/worker_contact_text"
+                android:textIsSelectable="true"
+                android:gravity="center_vertical"
+                android:textSize="20sp"
+                android:paddingStart="10dp"
+                android:fontFamily="@font/lato_medium"
+                android:textColor="@color/dark_grey"
+                android:paddingEnd="0dp">
+
+            </TextView>
+
+        </RelativeLayout>
+
 
     </LinearLayout>
 

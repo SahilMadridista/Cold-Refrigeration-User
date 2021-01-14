@@ -84,5 +84,17 @@ public class UserHomePageActivity extends AppCompatActivity {
          }
       });
 
+      CardView PreviousCard = findViewById(R.id.previous_card);
+      PreviousCard.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+
+            Intent intent = new Intent(getApplicationContext(),PreviousBookingActivity.class);
+            intent.putExtra("email",i.getStringExtra("email"));
+            startActivity(intent);
+
+         }
+      });
+
    }
 }

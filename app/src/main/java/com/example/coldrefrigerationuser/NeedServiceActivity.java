@@ -146,8 +146,8 @@ public class NeedServiceActivity extends AppCompatActivity {
          @Override
          public void onClick(View view) {
 
-            // payUsingUPI(name,email,phone);
-            storeInfoOfBooking();
+            payUsingUPI(name,email,phone);
+            // storeInfoOfBooking();
 
 
          }
@@ -310,6 +310,7 @@ public class NeedServiceActivity extends AppCompatActivity {
       service.booking_date = date;
       service.booking_time = Integer.parseInt(String.valueOf(time));
       service.advance_amount = String.valueOf(advance_amount);
+      service.work_status = "pending";
       service.worker_allotment_status = "no";
       service.worker_name = "";
       service.worker_email = "";

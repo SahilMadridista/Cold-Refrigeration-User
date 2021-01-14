@@ -346,7 +346,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_toEndOf="@id/par"
-                        android:text="@string/previous"
+                        android:text="@string/done_works"
                         android:gravity="center_vertical"
                         android:fontFamily="@font/lato_regular"
                         android:textColor="@color/dark_grey"
