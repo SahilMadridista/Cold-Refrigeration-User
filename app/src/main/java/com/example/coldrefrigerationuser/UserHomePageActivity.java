@@ -72,5 +72,17 @@ public class UserHomePageActivity extends AppCompatActivity {
          }
       });
 
+      CardView PendingCard = findViewById(R.id.pending_card);
+      PendingCard.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+
+            Intent intent = new Intent(getApplicationContext(),PendingBookingsActivity.class);
+            intent.putExtra("email",i.getStringExtra("email"));
+            startActivity(intent);
+
+         }
+      });
+
    }
 }

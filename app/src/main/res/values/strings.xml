@@ -48,4 +48,8 @@
         <item tools:ignore="TypographyEllipsis">Loading...</item>
     </string-array>
 
+    // Pending booking
+
+    <string name="pending_bookings">Pending bookings</string>
+
 </resources>
