@@ -146,8 +146,8 @@ public class NeedServiceActivity extends AppCompatActivity {
          @Override
          public void onClick(View view) {
 
-            payUsingUPI(name,email,phone);
-            // storeInfoOfBooking();
+            // payUsingUPI(name,email,phone);
+            storeInfoOfBooking();
 
 
          }
