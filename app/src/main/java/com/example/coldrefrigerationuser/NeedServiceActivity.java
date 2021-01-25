@@ -21,6 +21,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.coldrefrigerationuser.Model.Service;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,6 +39,12 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -54,6 +65,7 @@ public class NeedServiceActivity extends AppCompatActivity {
    String cost, worker_cost;
    int advance_amount;
    long time;
+   ProgressDialog progressDialog;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +83,11 @@ public class NeedServiceActivity extends AppCompatActivity {
       name = i.getStringExtra("name");
       phone = i.getStringExtra("phone");
       email = i.getStringExtra("email");
+
+      progressDialog = new ProgressDialog(NeedServiceActivity.this);
+      progressDialog.setCancelable(false);
+      progressDialog.setTitle("Loading");
+      progressDialog.setMessage("Just a moment...");
 
       ServiceSpinner = findViewById(R.id.service_spinner);
       ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -275,11 +292,6 @@ public class NeedServiceActivity extends AppCompatActivity {
 
    private void storeInfoOfBooking() {
 
-      ProgressDialog progressDialog = new ProgressDialog(NeedServiceActivity.this);
-      progressDialog.setCancelable(false);
-      progressDialog.setTitle("Loading");
-      progressDialog.setMessage("Just a moment...");
-
       Calendar c = Calendar.getInstance();
       @SuppressLint("SimpleDateFormat")
       SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -325,9 +337,12 @@ public class NeedServiceActivity extends AppCompatActivity {
          @Override
          public void onSuccess(Void aVoid) {
 
-            progressDialog.dismiss();
-            Toast.makeText(getApplicationContext(),"Booking successful. A worker will reach you soon.",Toast.LENGTH_LONG).show();
-            NeedServiceActivity.super.onBackPressed();
+            String message = getResources().getString(R.string.message);
+            try {
+               sendSMS(message,phone);
+            } catch (UnsupportedEncodingException e) {
+               e.printStackTrace();
+            }
 
          }
       }).addOnFailureListener(new OnFailureListener() {
@@ -341,7 +356,145 @@ public class NeedServiceActivity extends AppCompatActivity {
       });
 
 
+   }
 
+   private void sendSMS(String message, String phone) throws UnsupportedEncodingException {
+
+      String apiKey = "20otlE1ceI8DYKWzmuMvxPwkUSfOs6RB7T9FpLdJCqnhQH4A5gpAu1SvIabJ3C6QDB9j5U8grwLkKnli";
+      String sendId = "FSTSMS";
+
+      //important step...
+      message = URLEncoder.encode(message, "UTF-8");
+      String language = "english";
+
+      String route = "p";
+
+      String myUrl = "https://www.fast2sms.com/dev/bulk?authorization=" + apiKey + "&sender_id=" + sendId + "&message=" + message + "&language=" + language + "&route=" + route + "&numbers=" + phone;
+
+      StringRequest requestSms = new StringRequest(myUrl, new Response.Listener<String>() {
+         @Override
+         public void onResponse(String response) {
+
+            JSONObject object = null;
+
+            try {
+
+               object = new JSONObject(response);
+               String ret = object.getString("return");
+               String reqId = object.getString("request_id");
+               JSONArray dataArray = object.getJSONArray("message");
+               String res = dataArray.getString(0);
+
+               /*Toast.makeText(getApplicationContext(), "Message: " + res, Toast.LENGTH_SHORT).show();
+
+               Toast.makeText(getApplicationContext(),"Booking successful. A worker will reach you soon.",Toast.LENGTH_LONG).show();*/
+
+               sendMsgToAdmin();
+
+
+            } catch (JSONException e) {
+               e.printStackTrace();
+
+            }
+
+         }
+      }, new Response.ErrorListener() {
+         @Override
+         public void onErrorResponse(VolleyError volleyError) {
+
+            progressDialog.dismiss();
+            Toast.makeText(getApplicationContext(), volleyError.getMessage(), Toast.LENGTH_SHORT).show();
+
+         }
+      });
+
+      RequestQueue rQueue = Volley.newRequestQueue(NeedServiceActivity.this);
+      rQueue.add(requestSms);
+
+
+   }
+
+   private void sendMsgToAdmin() {
+
+      firebaseFirestore.collection("Members").whereEqualTo("designation",
+              "ADMIN").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+         @Override
+         public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+            ArrayList<String> admin_contacts = new ArrayList<>();
+
+            for(DocumentSnapshot documentSnapshot : Objects.requireNonNull(task.getResult())){
+               admin_contacts.add(documentSnapshot.getString("phone"));
+            }
+
+            String apiKey = "20otlE1ceI8DYKWzmuMvxPwkUSfOs6RB7T9FpLdJCqnhQH4A5gpAu1SvIabJ3C6QDB9j5U8grwLkKnli";
+            String sendId = "FSTSMS";
+
+            //important step...
+
+            String message = getResources().getString(R.string.admin_msg);
+
+            try {
+               message = URLEncoder.encode(message, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+               e.printStackTrace();
+            }
+
+            String language = "english";
+            String route = "p";
+
+            for(int i = 0;i<admin_contacts.size();i++){
+
+               String myUrl = "https://www.fast2sms.com/dev/bulk?authorization=" + apiKey + "&sender_id=" + sendId + "&message=" + message + "&language=" + language + "&route=" + route + "&numbers=" + admin_contacts.get(i);
+
+               StringRequest requestSms = new StringRequest(myUrl, new Response.Listener<String>() {
+                  @Override
+                  public void onResponse(String response) {
+
+                     JSONObject object = null;
+
+                     try {
+
+                        object = new JSONObject(response);
+                        String ret = object.getString("return");
+                        String reqId = object.getString("request_id");
+                        JSONArray dataArray = object.getJSONArray("message");
+                        String res = dataArray.getString(0);
+
+                        Toast.makeText(getApplicationContext(), "Message: " + res, Toast.LENGTH_SHORT).show();
+
+                        Toast.makeText(getApplicationContext(),"Booking successful. A worker will reach you soon.",Toast.LENGTH_LONG).show();
+
+                        progressDialog.dismiss();
+
+                        NeedServiceActivity.super.onBackPressed();
+
+
+
+                     } catch (JSONException e) {
+                        e.printStackTrace();
+
+                     }
+
+                  }
+               }, new Response.ErrorListener() {
+                  @Override
+                  public void onErrorResponse(VolleyError volleyError) {
+
+                     progressDialog.dismiss();
+                     Toast.makeText(getApplicationContext(), volleyError.getMessage(), Toast.LENGTH_SHORT).show();
+
+                  }
+               });
+
+               RequestQueue rQueue = Volley.newRequestQueue(NeedServiceActivity.this);
+               rQueue.add(requestSms);
+
+            }
+
+
+         }
+      });
 
 
    }

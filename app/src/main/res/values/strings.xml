@@ -56,6 +56,11 @@
         <item tools:ignore="TypographyEllipsis">Loading...</item>
     </string-array>
 
+    <string name="message">Thank you for choosing our service.
+        Our worker will reach you soon to complete the job. Hope you will like our service. - Team COLD REFRIGERATION</string>
+    <string name="API_KEY">20otlE1ceI8DYKWzmuMvxPwkUSfOs6RB7T9FpLdJCqnhQH4A5gpAu1SvIabJ3C6QDB9j5U8grwLkKnli</string>
+
+    <string name="admin_msg">A new booking has been created. Please assign a worker to it.</string>
 
     // Previous
 

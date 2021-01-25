@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ColdRefrigerationUser">
-        <activity android:name=".PreviousBookingActivity"></activity>
+        <activity android:name=".PreviousBookingActivity"/>
         <activity android:name=".PendingBookingsActivity" />
         <activity android:name=".NeedServiceActivity" />
         <activity android:name=".UserHomePageActivity" />
@@ -22,8 +22,9 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>
