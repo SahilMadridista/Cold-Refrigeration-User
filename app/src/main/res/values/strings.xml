@@ -31,6 +31,7 @@
     <string name="need_service">Need service</string>
     <string name="previous">Previous orders</string>
     <string name="done_works">Done works</string>
+    <string name="contact">Contact us</string>
 
 
     // Need service
@@ -44,7 +45,7 @@
     <string name="loading" tools:ignore="TypographyEllipsis">Loading...</string>
     <string name="advance">You have to pay 10% of the service cost as advance amount to confirm your booking.</string>
 
-    <string name="confirm_booking">Pay and confirm booking</string>
+    <string name="confirm_booking">Confirm booking</string>
     <string name="pending_bookings">Pending bookings</string>
 
     // Pending booking

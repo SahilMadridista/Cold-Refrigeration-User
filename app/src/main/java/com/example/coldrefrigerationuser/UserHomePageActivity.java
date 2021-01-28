@@ -2,9 +2,16 @@ package com.example.coldrefrigerationuser;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,11 +21,13 @@ import android.widget.TextView;
 import com.example.coldrefrigerationuser.Consts.SharedPrefConsts;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.auth.User;
 
 public class UserHomePageActivity extends AppCompatActivity {
 
    FirebaseAuth firebaseAuth;
    FirebaseFirestore firebaseFirestore;
+   private static final int REQUEST_PHONE_CALL = 1;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +101,48 @@ public class UserHomePageActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(),PreviousBookingActivity.class);
             intent.putExtra("email",i.getStringExtra("email"));
             startActivity(intent);
+
+         }
+      });
+
+      CardView ContactCard = findViewById(R.id.contact_card);
+      ContactCard.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+
+
+            String[] items = {"Call", "Email"};
+            AlertDialog.Builder dialog = new AlertDialog.Builder(UserHomePageActivity.this);
+            dialog.setTitle("Select one");
+            dialog.setItems(items, new DialogInterface.OnClickListener() {
+               @Override
+               public void onClick(DialogInterface dialogInterface, int which) {
+                  if (which == 0) {
+
+                     Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "9621898141"));
+                     if (ContextCompat.checkSelfPermission(UserHomePageActivity.this, Manifest.permission.CALL_PHONE)
+                             != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(UserHomePageActivity
+                                .this, new String[]{Manifest.permission.CALL_PHONE},REQUEST_PHONE_CALL);
+                     }
+                     else
+                     {
+                        startActivity(intent);
+                     }
+
+                  }
+
+                  if (which == 1) {
+
+                     Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                             "mailto","coldrefrigeration30@gmail.com", null));
+                     startActivity(Intent.createChooser(emailIntent, "Send email..."));
+
+                  }
+               }
+            });
+            dialog.create().show();
+
 
          }
       });

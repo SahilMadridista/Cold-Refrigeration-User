@@ -58,7 +58,7 @@ public class NeedServiceActivity extends AppCompatActivity {
    Spinner ServiceSpinner;
    FirebaseAuth firebaseAuth;
    FirebaseFirestore firebaseFirestore;
-   TextView ServiceCost,AdvanceAmount;
+   TextView ServiceCost;
    EditText Address;
    final int UPI_PAYMENT = 0;
    String name, email, phone;
@@ -75,7 +75,6 @@ public class NeedServiceActivity extends AppCompatActivity {
       firebaseAuth = FirebaseAuth.getInstance();
       firebaseFirestore = FirebaseFirestore.getInstance();
       ServiceCost = findViewById(R.id.service_cost_text);
-      AdvanceAmount = findViewById(R.id.advance_amount_text);
       Address = findViewById(R.id.address_et);
       Button PayAndBook = findViewById(R.id.pay_and_book);
 
@@ -121,7 +120,6 @@ public class NeedServiceActivity extends AppCompatActivity {
          public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
             ServiceCost.setText(R.string.loading);
-            AdvanceAmount.setText(R.string.loading);
             String service = adapterView.getItemAtPosition(i).toString().trim();
 
             firebaseFirestore.collection("Services").whereEqualTo("service_name",service)
@@ -133,11 +131,8 @@ public class NeedServiceActivity extends AppCompatActivity {
                      for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
 
                         cost = String.valueOf(Objects.requireNonNull(document.get("total_cost")));
-                        worker_cost = String.valueOf(Objects.requireNonNull(document.get("worker_cost")));
                         assert cost != null;
-                        advance_amount = Integer.parseInt(cost)/10;
                         ServiceCost.setText(cost);
-                        AdvanceAmount.setText(String.valueOf(advance_amount));
 
                      }
 
@@ -188,7 +183,7 @@ public class NeedServiceActivity extends AppCompatActivity {
               .appendQueryParameter("pa", "sahil91098singh-1@okaxis")
               .appendQueryParameter("pn", name)
               .appendQueryParameter("tn", name+phone)
-              .appendQueryParameter("am", AdvanceAmount.getText().toString().trim())
+              .appendQueryParameter("am", "a")
               .appendQueryParameter("cu", "INR")
               .build();
 
@@ -384,10 +379,6 @@ public class NeedServiceActivity extends AppCompatActivity {
                String reqId = object.getString("request_id");
                JSONArray dataArray = object.getJSONArray("message");
                String res = dataArray.getString(0);
-
-               /*Toast.makeText(getApplicationContext(), "Message: " + res, Toast.LENGTH_SHORT).show();
-
-               Toast.makeText(getApplicationContext(),"Booking successful. A worker will reach you soon.",Toast.LENGTH_LONG).show();*/
 
                sendMsgToAdmin();
 
