@@ -131,6 +131,8 @@ public class NeedServiceActivity extends AppCompatActivity {
                      for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
 
                         cost = String.valueOf(Objects.requireNonNull(document.get("total_cost")));
+                        worker_cost = String.valueOf(Objects.requireNonNull(document.get("worker_cost")));
+
                         assert cost != null;
                         ServiceCost.setText(cost);
 
