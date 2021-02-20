@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.coldrefrigerationuser">
+    package="com.cold.coldrefrigerationuser">
 
     <application
         android:allowBackup="true"
@@ -9,12 +9,12 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.ColdRefrigerationUser">
-        <activity android:name=".PreviousBookingActivity"/>
-        <activity android:name=".PendingBookingsActivity" />
-        <activity android:name=".NeedServiceActivity" />
-        <activity android:name=".UserHomePageActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.cold.coldrefrigerationuser.PreviousBookingActivity"/>
+        <activity android:name="com.cold.coldrefrigerationuser.PendingBookingsActivity" />
+        <activity android:name="com.cold.coldrefrigerationuser.NeedServiceActivity" />
+        <activity android:name="com.cold.coldrefrigerationuser.UserHomePageActivity" />
+        <activity android:name="com.cold.coldrefrigerationuser.LoginActivity" />
+        <activity android:name="com.cold.coldrefrigerationuser.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
