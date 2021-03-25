@@ -1,4 +1,4 @@
-package com.cold.coldrefrigerationuser.Model;
+package cold.coldref.refrigeration.Model;
 
 public class User {
 

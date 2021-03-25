@@ -1,4 +1,4 @@
-package com.cold.coldrefrigerationuser;
+package cold.coldref.refrigeration;
 
 import android.content.Context;
 

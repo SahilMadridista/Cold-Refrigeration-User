@@ -1,13 +1,13 @@
-package com.cold.coldrefrigerationuser;
+package cold.coldref.refrigeration;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import cold.coldref.refrigeration.Consts.SharedPrefConsts;
 
-import com.cold.coldrefrigerationuser.Consts.SharedPrefConsts;
+import com.coldref.refrigeration.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;

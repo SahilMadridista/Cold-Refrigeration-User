@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".PreviousBookingActivity">
+    tools:context="cold.coldref.refrigeration.PreviousBookingActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

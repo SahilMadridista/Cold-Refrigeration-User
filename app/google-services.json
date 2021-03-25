@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:491592639191:android:62c1102b7e459f08e80692",
         "android_client_info": {
-          "package_name": "com.example.coldrefrigeration"
+          "package_name": "cold.coldref.refrigeration"
         }
       },
       "oauth_client": [

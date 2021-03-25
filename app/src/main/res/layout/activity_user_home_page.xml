@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".UserHomePageActivity">
+    tools:context="cold.coldref.refrigeration.UserHomePageActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

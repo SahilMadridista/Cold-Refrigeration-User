@@ -1,4 +1,4 @@
-package com.cold.coldrefrigerationuser.Adapter;
+package cold.coldref.refrigeration.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,8 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cold.coldrefrigerationuser.Model.Service;
-import com.cold.coldrefrigerationuser.R;
+import cold.coldref.refrigeration.Model.Service;
+import com.coldref.refrigeration.R;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 

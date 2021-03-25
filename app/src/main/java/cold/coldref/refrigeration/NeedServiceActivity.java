@@ -1,17 +1,12 @@
-package com.cold.coldrefrigerationuser;
+package cold.coldref.refrigeration;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,7 +21,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.cold.coldrefrigerationuser.Model.Service;
+import cold.coldref.refrigeration.Model.Service;
+
+import com.coldref.refrigeration.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -169,7 +166,7 @@ public class NeedServiceActivity extends AppCompatActivity {
 
    }
 
-   private void payUsingUPI(String name, String email, String phone) {
+   /*private void payUsingUPI(String name, String email, String phone) {
 
       if(ServiceCost.getText().toString().trim().equals("Loading...")){
          Toast.makeText(getApplicationContext(),"Please wait for amount to load.",Toast.LENGTH_SHORT).show();
@@ -200,9 +197,9 @@ public class NeedServiceActivity extends AppCompatActivity {
          Toast.makeText(getApplicationContext(),"No UPI app found, please install one to continue",Toast.LENGTH_SHORT).show();
       }
 
-   }
+   }*/
 
-   public static boolean isConnectionAvailable(Context context) {
+   /*public static boolean isConnectionAvailable(Context context) {
       ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
       if (connectivityManager != null) {
          NetworkInfo netInfo = connectivityManager.getActiveNetworkInfo();
@@ -213,9 +210,9 @@ public class NeedServiceActivity extends AppCompatActivity {
          }
       }
       return false;
-   }
+   }*/
 
-   @Override
+   /*@Override
    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
       super.onActivityResult(requestCode, resultCode, data);
 
@@ -242,9 +239,9 @@ public class NeedServiceActivity extends AppCompatActivity {
             }
             break;
       }
-   }
+   }*/
 
-   private void upiPaymentDataOperation(ArrayList<String> dataList) {
+   /*private void upiPaymentDataOperation(ArrayList<String> dataList) {
 
       if (isConnectionAvailable(NeedServiceActivity.this)) {
          String str = dataList.get(0);
@@ -285,7 +282,7 @@ public class NeedServiceActivity extends AppCompatActivity {
       } else {
          Toast.makeText(getApplicationContext(), "Internet connection is not available. Please check and try again", Toast.LENGTH_SHORT).show();
       }
-   }
+   }*/
 
    private void storeInfoOfBooking() {
 

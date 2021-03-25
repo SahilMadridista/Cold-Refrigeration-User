@@ -1,4 +1,4 @@
-package com.cold.coldrefrigerationuser;
+package cold.coldref.refrigeration;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,8 +11,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.cold.coldrefrigerationuser.Adapter.PreviousBookingAdapter;
-import com.cold.coldrefrigerationuser.Model.Service;
+import cold.coldref.refrigeration.Adapter.BookingAdapter;
+import cold.coldref.refrigeration.Model.Service;
+
+import com.coldref.refrigeration.R;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.EventListener;
@@ -23,7 +25,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
 
-public class PreviousBookingActivity extends AppCompatActivity {
+public class PendingBookingsActivity extends AppCompatActivity {
 
    com.airbnb.lottie.LottieAnimationView Loading;
    TextView Empty;
@@ -31,7 +33,7 @@ public class PreviousBookingActivity extends AppCompatActivity {
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      setContentView(R.layout.activity_previous_booking);
+      setContentView(R.layout.activity_pending_bookings);
 
       FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
@@ -45,7 +47,7 @@ public class PreviousBookingActivity extends AppCompatActivity {
 
       Query query = collectionReference
               .whereEqualTo("customer_email",email)
-              .whereEqualTo("work_status","done");
+              .whereEqualTo("work_status","pending");
 
       FirestoreRecyclerOptions<Service> options = new FirestoreRecyclerOptions.Builder<Service>()
               .setQuery(query, Service.class)
@@ -78,12 +80,12 @@ public class PreviousBookingActivity extends AppCompatActivity {
       });
 
       RecyclerView recyclerView = findViewById(R.id.pending_r_view);
-      PreviousBookingAdapter previousBookingAdapter = new PreviousBookingAdapter(options);
+      BookingAdapter bookingAdapter = new BookingAdapter(options);
       recyclerView.setHasFixedSize(true);
       recyclerView.setLayoutManager(new LinearLayoutManager(this));
-      recyclerView.setAdapter(previousBookingAdapter);
-      previousBookingAdapter.startListening();
+      recyclerView.setAdapter(bookingAdapter);
+      bookingAdapter.startListening();
+
 
    }
-
 }

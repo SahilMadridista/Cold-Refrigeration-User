@@ -1,4 +1,4 @@
-package com.cold.coldrefrigerationuser;
+package cold.coldref.refrigeration;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,8 +18,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cold.coldrefrigerationuser.BottomSheets.SignUpBottomSheet;
-import com.cold.coldrefrigerationuser.Consts.SharedPrefConsts;
+import cold.coldref.refrigeration.BottomSheets.SignUpBottomSheet;
+import cold.coldref.refrigeration.Consts.SharedPrefConsts;
+
+import com.coldref.refrigeration.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

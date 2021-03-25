@@ -1,4 +1,4 @@
-package com.cold.coldrefrigerationuser.Consts;
+package cold.coldref.refrigeration.Consts;
 
 public class SharedPrefConsts {
 

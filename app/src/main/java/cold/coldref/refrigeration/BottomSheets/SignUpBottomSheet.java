@@ -1,4 +1,4 @@
-package com.cold.coldrefrigerationuser.BottomSheets;
+package cold.coldref.refrigeration.BottomSheets;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -18,8 +18,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.cold.coldrefrigerationuser.Model.User;
-import com.cold.coldrefrigerationuser.R;
+import cold.coldref.refrigeration.Model.User;
+import com.coldref.refrigeration.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

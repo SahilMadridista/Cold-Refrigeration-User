@@ -1,4 +1,4 @@
-package com.cold.coldrefrigerationuser;
+package cold.coldref.refrigeration;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -17,7 +17,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.cold.coldrefrigerationuser.Consts.SharedPrefConsts;
+import cold.coldref.refrigeration.Consts.SharedPrefConsts;
+
+import com.coldref.refrigeration.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
